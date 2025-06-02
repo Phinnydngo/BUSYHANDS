@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Busy Hands - Our Projects</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-<!-- AOS for animations -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-<!-- Orbitron font for futuristic feel -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   body {
+    font-family: 'Inter', sans-serif;
+  }
+  .headings {
     font-family: 'Orbitron', sans-serif;
   }
   .glow-text {
@@ -25,19 +24,67 @@
     border-radius: 1rem;
     border: 1px solid rgba(0, 0, 0, 0.1);
   }
+  
+  /* Mobile menu styles */
+  .mobile-menu {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .mobile-menu.open {
+    max-height: 500px;
+  }
+  
+  /* Better touch targets */
+  .nav-link {
+    padding: 12px 16px;
+    display: block;
+  }
+  
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Responsive image scaling */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Disable hover effects on mobile */
+  @media (hover: none) {
+    .project-card, .project-image {
+      transform: none !important;
+    }
+  }
 </style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900">
 
 <!-- Header -->
-<header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-6 shadow-2xl sticky top-0 z-50 animate-fade-down">
-  <div class="container mx-auto flex justify-between items-center px-4">
-    <div class="flex items-center space-x-4">
-      <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="h-12 w-auto rounded-full shadow" />
-      <h1 class="text-4xl font-extrabold tracking-wider glow-text">BUSY HANDS</h1>
+<header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-4 shadow-2xl sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="h-10 w-10 rounded-full shadow" />
+        <h1 class="text-2xl font-extrabold glow-text headings">BUSY HANDS</h1>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:text-yellow-300 hover:border-yellow-300">
+        <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
     </div>
-    <nav>
-      <ul class="flex space-x-6 font-semibold text-lg">
+    
+    <!-- Desktop Menu -->
+    <nav class="hidden md:block mt-2">
+      <ul class="flex space-x-4 sm:space-x-6 font-semibold text-base justify-center sm:justify-end">
         <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
         <li><a href="about.html" class="hover:text-yellow-300 transition">About</a></li>
         <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
@@ -45,65 +92,92 @@
         <li><a href="contact.html" class="hover:text-yellow-300 transition">Contact</a></li>
       </ul>
     </nav>
+    
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-green-600 w-full">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="index.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Home</a>
+        <a href="about.html" class="block nav-link text-white hover:bg-green-700 rounded-md">About</a>
+        <a href="services.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Services</a>
+        <a href="projects.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Projects</a>
+        <a href="contact.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Contact</a>
+      </div>
+    </div>
   </div>
 </header>
 
-<section class="container mx-auto py-20 px-4">
-  <h2 class="text-5xl font-extrabold mb-10 text-center text-green-700 glow-text" data-aos="fade-up">Our Projects</h2>
+<!-- Projects Section -->
+<section class="container mx-auto py-8 sm:py-12 px-4">
+  <h2 class="text-3xl font-extrabold mb-6 sm:mb-10 text-center text-green-700 glow-text headings" data-aos="fade-up">Our Projects</h2>
 
-  <div class="grid gap-8 md:grid-cols-3 sm:grid-cols-2" data-aos="fade-up" data-aos-delay="200">
-    <div class="glass p-4 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
+  <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3" data-aos="fade-up" data-aos-delay="200">
+    <!-- Project Card 1 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="300">
       <div class="overflow-hidden rounded-xl mb-4 shadow">
-        <img src="URBANPIPELINE.jpg" alt="Urban Pipeline Installation" class="w-full h-56 object-cover rounded-xl hover:scale-105 transform transition" />
+        <img src="URBANPIPELINE.jpg" alt="Urban Pipeline Installation" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
       </div>
-      <h3 class="text-xl font-bold mb-2 text-green-700">Urban Pipeline Installation</h3>
-      <p class="text-gray-700">Efficient underground pipeline for water distribution in urban environments.</p>
+      <h3 class="text-lg font-bold mb-2 text-green-700 headings">Urban Pipeline Installation</h3>
+      <p class="text-gray-700 text-sm">Efficient underground pipeline for water distribution in urban environments.</p>
     </div>
-    <div class="glass p-4 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
+    
+    <!-- Project Card 2 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="400">
       <div class="overflow-hidden rounded-xl mb-4 shadow">
-        <img src="SMARTMETER.jpg" alt="Smart Meter Upgrade" class="w-full h-56 object-cover rounded-xl hover:scale-105 transform transition" />
+        <img src="SMARTMETER.jpg" alt="Smart Meter Upgrade" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
       </div>
-      <h3 class="text-xl font-bold mb-2 text-green-700">Smart Meter Upgrade</h3>
-      <p class="text-gray-700">Advanced smart meter installation for modern energy management.</p>
+      <h3 class="text-lg font-bold mb-2 text-green-700 headings">Smart Meter Upgrade</h3>
+      <p class="text-gray-700 text-sm">Advanced smart meter installation for modern energy management.</p>
     </div>
-    <div class="glass p-4 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="500">
+    
+    <!-- Project Card 3 -->
+    <div class="glass p-4 rounded-2xl shadow-lg project-card" data-aos="zoom-in" data-aos-delay="500">
       <div class="overflow-hidden rounded-xl mb-4 shadow">
-        <img src="DIRECTIONALDRILLING.jpg" alt="Directional Drilling for Data Lines" class="w-full h-56 object-cover rounded-xl hover:scale-105 transform transition" />
+        <img src="DIRECTIONALDRILLING.jpg" alt="Directional Drilling for Data Lines" class="w-full h-40 sm:h-48 object-cover rounded-xl project-image" />
       </div>
-      <h3 class="text-xl font-bold mb-2 text-green-700">Directional Drilling for Data Lines</h3>
-      <p class="text-gray-700">Non-invasive drilling for telecom cables in busy city areas.</p>
+      <h3 class="text-lg font-bold mb-2 text-green-700 headings">Directional Drilling</h3>
+      <p class="text-gray-700 text-sm">Non-invasive drilling for telecom cables in busy city areas.</p>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-100 text-gray-500 py-6 text-center mt-16 animate-fade-up border-t border-gray-200">
-  &copy; 2025 Busy Hands. All rights reserved.
+<footer class="bg-gray-100 text-gray-500 py-4 text-center border-t border-gray-200 text-xs sm:text-sm">
+  <div class="container mx-auto px-4">
+    <p>&copy; 2025 Busy Hands. All rights reserved.</p>
+    <div class="mt-2 flex justify-center space-x-4">
+      <a href="#" class="hover:text-green-600">Privacy Policy</a>
+      <a href="#" class="hover:text-green-600">Terms & Conditions</a>
+      <a href="#" class="hover:text-green-600">Sitemap</a>
+    </div>
+  </div>
 </footer>
 
-<!-- AOS scripts -->
+<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
+  // Initialize AOS animations
   AOS.init({
-    duration: 1000,
+    duration: 800,
     once: true,
+    offset: 100
+  });
+  
+  // Mobile menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    this.classList.toggle('text-yellow-300');
+    this.classList.toggle('border-yellow-300');
+  });
+  
+  // Close menu when clicking on a link (for mobile)
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('menu-toggle').classList.remove('text-yellow-300', 'border-yellow-300');
+    });
   });
 </script>
-
-<!-- Custom animations -->
-<style>
-  @keyframes fade-down {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-down { animation: fade-down 1s ease-out; }
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-up { animation: fade-up 1s ease-out; }
-</style>
 
 </body>
 </html>

@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Busy Hands - Our Services</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-<!-- AOS for animations -->
 <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-<!-- Orbitron font for a futuristic look -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   body {
+    font-family: 'Inter', sans-serif;
+  }
+  .headings {
     font-family: 'Orbitron', sans-serif;
   }
   .glass {
@@ -25,20 +24,67 @@
   .glow-text {
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
   }
+  
+  /* Mobile menu styles */
+  .mobile-menu {
+    transition: all 0.3s ease;
+    max-height: 0;
+    overflow: hidden;
+  }
+  
+  .mobile-menu.open {
+    max-height: 500px;
+  }
+  
+  /* Better touch targets */
+  .nav-link {
+    padding: 12px 16px;
+    display: block;
+  }
+  
+  /* Prevent horizontal scrolling */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Responsive image scaling */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Disable hover effects on mobile */
+  @media (hover: none) {
+    .service-card {
+      transform: none !important;
+    }
+  }
 </style>
 </head>
-<body class="bg-white text-gray-900 font-sans">
+<body class="bg-white text-gray-900">
 
 <!-- Header -->
-<header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-6 shadow-2xl sticky top-0 z-50 animate-fade-down">
-  <div class="container mx-auto flex justify-between items-center px-4">
-    <div class="flex items-center space-x-4">
-      <!-- Logo Image Placeholder -->
-      <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="h-10 w-auto rounded shadow" />
-      <h1 class="text-4xl font-extrabold tracking-wider glow-text">BUSY HANDS</h1>
+<header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-4 shadow-2xl sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="h-10 w-auto rounded shadow" />
+        <h1 class="text-2xl sm:text-3xl font-extrabold glow-text headings">BUSY HANDS</h1>
+      </div>
+      
+      <!-- Mobile Menu Button -->
+      <button id="menu-toggle" class="md:hidden flex items-center px-3 py-2 border rounded text-white border-white hover:text-yellow-300 hover:border-yellow-300">
+        <svg class="fill-current h-5 w-5" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <title>Menu</title>
+          <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/>
+        </svg>
+      </button>
     </div>
-    <nav>
-      <ul class="flex space-x-6 font-semibold text-lg">
+    
+    <!-- Desktop Menu -->
+    <nav class="hidden md:block mt-2">
+      <ul class="flex space-x-4 sm:space-x-6 font-semibold text-base justify-center sm:justify-end">
         <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
         <li><a href="about.html" class="hover:text-yellow-300 transition">About</a></li>
         <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
@@ -46,111 +92,119 @@
         <li><a href="contact.html" class="hover:text-yellow-300 transition">Contact</a></li>
       </ul>
     </nav>
+    
+    <!-- Mobile Menu Dropdown -->
+    <div id="mobile-menu" class="mobile-menu md:hidden bg-green-600 w-full">
+      <div class="px-2 pt-2 pb-4 space-y-1">
+        <a href="index.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Home</a>
+        <a href="about.html" class="block nav-link text-white hover:bg-green-700 rounded-md">About</a>
+        <a href="services.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Services</a>
+        <a href="projects.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Projects</a>
+        <a href="contact.html" class="block nav-link text-white hover:bg-green-700 rounded-md">Contact</a>
+      </div>
+    </div>
   </div>
 </header>
 
 <!-- Services Section -->
-<section class="container mx-auto py-20 px-4">
-  <h2 class="text-5xl font-extrabold mb-10 text-center text-green-700 glow-text" data-aos="fade-up">Our Services</h2>
+<section class="container mx-auto py-8 sm:py-12 px-4">
+  <h2 class="text-3xl sm:text-4xl font-extrabold mb-6 sm:mb-8 text-center text-green-700 glow-text headings" data-aos="fade-up">Our Services</h2>
 
-  <div class="grid gap-10 md:grid-cols-3 sm:grid-cols-2" data-aos="fade-up" data-aos-delay="200">
-    <!-- GPR Scanning -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="300">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">GPR Scanning</h3>
-      <p class="text-gray-700 mb-4">Utilize advanced Ground Penetrating Radar to locate underground utilities and structures, preventing costly surprises.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+  <div class="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Service Cards -->
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="300">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">GPR Scanning</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">Utilize advanced Ground Penetrating Radar to locate underground utilities and structures, preventing costly surprises.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>High-precision underground mapping</li>
         <li>Non-destructive technology</li>
       </ul>
     </div>
 
-    <!-- Directional Drilling -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="400">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Directional Drilling</h3>
-      <p class="text-gray-700 mb-4">Trenchless drilling for seamless installations of pipes and cables—perfect for urban and rural projects.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="400">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Directional Drilling</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">Trenchless drilling for seamless installations of pipes and cables—perfect for urban and rural projects.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>Efficient and eco-friendly</li>
         <li>Minimizes surface disruption</li>
       </ul>
     </div>
 
-    <!-- Butt Welding -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="500">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Butt Welding</h3>
-      <p class="text-gray-700 mb-4">Achieve durable and reliable pipe connections for robust infrastructure across industries.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="500">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Butt Welding</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">Achieve durable and reliable pipe connections for robust infrastructure across industries.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>Certified and precise welding</li>
         <li>Long-lasting pipe connections</li>
       </ul>
     </div>
 
-    <!-- Moling -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="600">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Moling</h3>
-      <p class="text-gray-700 mb-4">A cost-effective and non-disruptive method for installing pipes underground, preserving the landscape.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="600">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Moling</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">A cost-effective and non-disruptive method for installing pipes underground, preserving the landscape.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>Ideal for gardens, driveways</li>
         <li>Quick and efficient installations</li>
       </ul>
     </div>
 
-    <!-- Smart Prepaid Meters -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="700">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Smart Prepaid Meters</h3>
-      <p class="text-gray-700 mb-4">Upgrade your utilities with advanced metering solutions for real-time monitoring and enhanced control.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="700">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Smart Prepaid Meters</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">Upgrade your utilities with advanced metering solutions for real-time monitoring and enhanced control.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>Energy-saving solutions</li>
         <li>User-friendly technology</li>
       </ul>
     </div>
 
-    <!-- Turnkey Projects -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105" data-aos="zoom-in" data-aos-delay="800">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Turnkey Projects</h3>
-      <p class="text-gray-700 mb-4">From concept to completion, our team ensures your project is delivered efficiently, on time, and within budget.</p>
-      <ul class="list-disc pl-5 text-gray-600 text-sm">
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg service-card" data-aos="zoom-in" data-aos-delay="800">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Turnkey Projects</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">From concept to completion, our team ensures your project is delivered efficiently, on time, and within budget.</p>
+      <ul class="list-disc pl-5 text-gray-600 text-xs sm:text-sm">
         <li>End-to-end project management</li>
         <li>Custom solutions for unique needs</li>
       </ul>
     </div>
 
-    <!-- Additional Services Placeholder -->
-    <div class="glass p-6 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 col-span-full text-center" data-aos="zoom-in" data-aos-delay="900">
-      <h3 class="text-2xl font-bold mb-3 text-green-700">Need Something Else?</h3>
-      <p class="text-gray-700 mb-4">If you're looking for a service not listed here, or need a tailored solution, we're here to help. Contact us for a custom consultation and let us bring your vision to life!</p>
-      <a href="contact.html" class="inline-block mt-4 bg-green-600 text-white font-bold py-2 px-6 rounded-full shadow hover:bg-green-700 transition">Contact Us</a>
+    <div class="glass p-4 sm:p-5 rounded-2xl shadow-lg text-center col-span-1 sm:col-span-2 lg:col-span-3" data-aos="zoom-in" data-aos-delay="900">
+      <h3 class="text-lg sm:text-xl font-bold mb-2 text-green-700 headings">Need Something Else?</h3>
+      <p class="text-gray-700 mb-3 text-sm sm:text-base">If you're looking for a service not listed here or need a tailored solution, we're here to help. Contact us for a custom consultation!</p>
+      <a href="contact.html" class="inline-block mt-2 sm:mt-3 bg-green-600 text-white font-bold py-2 px-4 sm:py-2 sm:px-6 rounded-full shadow hover:bg-green-700 transition text-sm sm:text-base">Contact Us</a>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
-<footer class="bg-gray-100 text-gray-500 py-6 text-center mt-16 animate-fade-up border-t border-gray-200">
+<footer class="bg-gray-100 text-gray-500 py-4 text-center border-t border-gray-200 text-xs sm:text-sm">
   &copy; 2025 Busy Hands. All rights reserved.
 </footer>
 
-<!-- AOS scripts -->
+<!-- Scripts -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
+  // Initialize AOS animations
   AOS.init({
-    duration: 1000,
+    duration: 800,
     once: true,
+    offset: 100
+  });
+  
+  // Mobile menu toggle
+  document.getElementById('menu-toggle').addEventListener('click', function() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('open');
+    this.classList.toggle('text-yellow-300');
+    this.classList.toggle('border-yellow-300');
+  });
+  
+  // Close menu when clicking on a link (for mobile)
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.remove('open');
+      document.getElementById('menu-toggle').classList.remove('text-yellow-300', 'border-yellow-300');
+    });
   });
 </script>
-
-<!-- Custom animations -->
-<style>
-  @keyframes fade-down {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-down { animation: fade-down 1s ease-out; }
-
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  .animate-fade-up { animation: fade-up 1s ease-out; }
-</style>
 
 </body>
 </html>
