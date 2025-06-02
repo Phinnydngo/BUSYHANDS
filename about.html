@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Busy Hands - About Us</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .glass {
+    backdrop-filter: blur(10px) saturate(180%);
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .glow-text {
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  }
+</style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<!-- Header -->
+<header class="bg-gradient-to-r from-green-500 to-green-700 text-white py-6 shadow-2xl sticky top-0 z-50 animate-fade-down">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <div class="flex items-center space-x-3">
+      <!-- Logo Image Placeholder -->
+      <img src="BUSYHANDSLOGO.jpg" alt="Busy Hands Logo" class="w-12 h-12 rounded-full shadow-md" />
+      <h1 class="text-4xl font-extrabold tracking-wider glow-text">BUSY HANDS</h1>
+    </div>
+    <nav>
+      <ul class="flex space-x-6 font-semibold text-lg">
+        <li><a href="index.html" class="hover:text-yellow-300 transition">Home</a></li>
+        <li><a href="about.html" class="hover:text-yellow-300 transition">About</a></li>
+        <li><a href="services.html" class="hover:text-yellow-300 transition">Services</a></li>
+        <li><a href="projects.html" class="hover:text-yellow-300 transition">Projects</a></li>
+        <li><a href="contact.html" class="hover:text-yellow-300 transition">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- About Section -->
+<section class="container mx-auto py-20 px-4">
+  <h2 class="text-5xl font-extrabold mb-10 text-center text-green-700 glow-text" data-aos="fade-up">About Busy Hands</h2>
+
+  <div class="grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up" data-aos-delay="200">
+    <img src="https://via.placeholder.com/600x400?text=Our+Dynamic+Team" alt="Our Team" class="rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105" />
+
+    <div class="glass p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+      <h3 class="text-3xl font-bold mb-4 text-green-700">Our Mission</h3>
+      <p class="text-gray-700 mb-4">At Busy Hands, our mission is to seamlessly integrate modern technology with traditional craftsmanship. We strive to deliver cutting-edge construction solutions that redefine industry standards and shape a smarter future.</p>
+      <h3 class="text-3xl font-bold mb-4 text-green-700">Our Values</h3>
+      <ul class="list-disc pl-5 text-gray-700">
+        <li>Precision-driven innovation</li>
+        <li>Sustainable and safe practices</li>
+        <li>Client-focused excellence and integrity</li>
+        <li>Commitment to delivering transformative results</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="mt-16 grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up" data-aos-delay="300">
+    <div class="glass p-8 rounded-2xl shadow-lg hover:shadow-2xl transition transform hover:scale-105">
+      <h3 class="text-3xl font-bold mb-4 text-green-700">Who We Are</h3>
+      <p class="text-gray-700 mb-4">Founded in 2013, Busy Hands has rapidly grown to become a trusted leader in innovative construction services, with more than a decade of experience. Our team is composed of skilled professionals who bring passion and expertise to every project.</p>
+      <p class="text-gray-700">From horizontal directional drilling to smart metering and everything in between, we’ve built a reputation for exceeding client expectations, no matter the challenge.</p>
+    </div>
+
+    <img src="https://via.placeholder.com/600x400?text=Our+Technology" alt="Technology" class="rounded-2xl shadow-xl hover:shadow-2xl transition transform hover:scale-105" />
+  </div>
+
+  <div class="mt-16 text-center" data-aos="fade-up" data-aos-delay="400">
+    <h3 class="text-3xl font-bold mb-4 text-green-700">Join Us on Our Journey</h3>
+    <p class="text-gray-700 max-w-3xl mx-auto mb-6">At Busy Hands, we’re not just builders—we’re visionaries. We invite you to be part of our journey towards a smarter, more sustainable future in construction. Let’s build the extraordinary together.</p>
+    <a href="contact.html" class="inline-block mt-4 bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow hover:bg-green-700 transition">Contact Us</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-500 py-6 text-center mt-16 animate-fade-up border-t border-gray-200">
+  &copy; 2025 Busy Hands. All rights reserved.
+</footer>
+
+<!-- AOS scripts -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    once: true,
+  });
+</script>
+
+<!-- Custom animations -->
+<style>
+  @keyframes fade-down {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-down { animation: fade-down 1s ease-out; }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up { animation: fade-up 1s ease-out; }
+</style>
+
+</body>
+</html>
